@@ -30,9 +30,9 @@ CONTINUE_BUTTON_ORIGIN = (420, 1260)
 CONTINUE_BUTTON_VERTEX = (600, 1290)
 
 r"""
---------586-----------------
+------------586--------------
 | 7  SAFE ZONE DEPLOY  1014 |    # 1/12 margin inner box length
---------854------------------
+------------854--------------
  
 PvP menu
 ------- 1141------
@@ -56,7 +56,7 @@ GOLD_8 = (731, 1352)
 GOLD_9 = (781, 1352)
 GOLD_COLOR = (223, 207, 73)  # max (255, 238, 84), tolerance=64
 
-# Mini 1 for pressing
+# Mini for pressing
 MINI_1_ORIGIN = (338, 1157)
 MINI_1_VERTEX = (408, 1191)
 MINI_2_ORIGIN = (481, 1157)
@@ -66,9 +66,11 @@ MINI_3_VERTEX = (697, 1191)
 MINI_4_ORIGIN = (770, 1157)
 MINI_4_VERTEX = (841, 1191)
 
+# Deploy mini randomly in this area
 DEPLOY_AREA_ORIGIN = (91, 608)
 DEPLOY_AREA_VERTEX = (930, 832)
 
+# -----------------------------------------
 # PositionNormalized is based on Game Window 1 positions
 origin = GAME_WINDOW_ORIGIN
 vertex = GAME_WINDOW_VERTEX
@@ -82,5 +84,28 @@ def normalize_position(position: tuple) -> tuple:
     return position_normal_x, position_normal_y
 
 
-n_back_button_l = normalize_position(BACK_BUTTON_L)
-print(n_back_button_l)
+# Normalized Positions
+N_BACK_BUTTON_L = normalize_position(BACK_BUTTON_L)
+N_BACK_BUTTON_R = normalize_position(BACK_BUTTON_R)
+N_RUMBLE_BUTTON_ORIGIN = normalize_position(RUMBLE_BUTTON_ORIGIN)
+N_RUMBLE_BUTTON_VERTEX = normalize_position(RUMBLE_BUTTON_VERTEX)
+
+N_CONTINUE_BUTTON_L = normalize_position(CONTINUE_BUTTON_L)
+N_CONTINUE_BUTTON_R = normalize_position(CONTINUE_BUTTON_R)
+N_CONTINUE_BUTTON_ORIGIN = normalize_position(CONTINUE_BUTTON_ORIGIN)
+N_CONTINUE_BUTTON_VERTEX = normalize_position(CONTINUE_BUTTON_VERTEX)
+
+N_GOLD_8 = normalize_position(GOLD_8)
+N_GOLD_9 = normalize_position(GOLD_9)
+
+N_MINI_1_ORIGIN = normalize_position(MINI_1_ORIGIN)
+N_MINI_1_VERTEX = normalize_position(MINI_1_VERTEX)
+N_MINI_2_ORIGIN = normalize_position(MINI_2_ORIGIN)
+N_MINI_2_VERTEX = normalize_position(MINI_2_VERTEX)
+N_MINI_3_ORIGIN = normalize_position(MINI_3_ORIGIN)
+N_MINI_3_VERTEX = normalize_position(MINI_3_VERTEX)
+N_MINI_4_ORIGIN = normalize_position(MINI_4_ORIGIN)
+N_MINI_4_VERTEX = normalize_position(MINI_4_VERTEX)
+
+N_DEPLOY_AREA_ORIGIN = normalize_position(DEPLOY_AREA_ORIGIN)
+N_DEPLOY_AREA_VERTEX = normalize_position(DEPLOY_AREA_VERTEX)

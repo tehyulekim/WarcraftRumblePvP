@@ -1,7 +1,7 @@
 import unittest
 import pyautogui
 import Constants
-
+import random
 from main import *
 
 
@@ -47,6 +47,10 @@ class MyTestCase(unittest.TestCase):
 
     def test_Button_found(self):
         x = self.computer_player.Rumble_Back_button_found()
+        pass
+
+    def test_random(self):
+        print(random.randrange(0,11))
         pass
 
 
