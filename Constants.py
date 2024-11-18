@@ -1,15 +1,32 @@
+# # 3440x1440
+# # Game Window
+# GAME_WINDOW_ORIGIN_1 = (3, 33)
+# GAME_WINDOW_VERTEX_1 = (1020, 1392)
+#
+# # Game Window 2
+# GAME_WINDOW_ORIGIN_2 = (1056, 33)
+# GAME_WINDOW_VERTEX_2 = (2072, 1392)
+
+# 1600x900
 # Game Window
 GAME_WINDOW_ORIGIN_1 = (3, 33)
-GAME_WINDOW_VERTEX_1 = (1020, 1392)
+GAME_WINDOW_VERTEX_1 = (614, 852)
 
 # Game Window 2
-GAME_WINDOW_ORIGIN_2 = (1056, 33)
-GAME_WINDOW_VERTEX_2 = (2072, 1392)
+GAME_WINDOW_ORIGIN_2 = (955, 33)
+GAME_WINDOW_VERTEX_2 = (1566, 852)
 
 # --------------------------------------------
 # Game Window for Normalizing Position
 GAME_WINDOW_ORIGIN = (3, 33)
 GAME_WINDOW_VERTEX = (1020, 1392)
+
+# PvP Button for detection
+PVP_BUTTON_L = (618, 1164)
+PVP_BUTTON_R = (738, 1164)
+PVP_BUTTON_COLOR = (224, 164, 14)
+PVP_BUTTON_ORIGIN = (632, 1148)
+PVP_BUTTON_VERTEX = (726, 1182)
 
 # Back Button pixels for Rumble Button detection
 BACK_BUTTON_L = (260, 1276)
@@ -24,10 +41,11 @@ RUMBLE_BUTTON_VERTEX = (758, 1292)
 CONTINUE_BUTTON_L = (404, 1272)
 CONTINUE_BUTTON_R = (614, 1272)
 CONTINUE_BUTTON_COLOR = (25, 91, 198)
-
-# Continue Button for pressing
 CONTINUE_BUTTON_ORIGIN = (420, 1260)
 CONTINUE_BUTTON_VERTEX = (600, 1290)
+
+# Session OK Button
+SESSION_BUTTON_COLOR = (182, 49, 37)
 
 r"""
 ------------586--------------
@@ -85,6 +103,11 @@ def normalize_position(position: tuple) -> tuple:
 
 
 # Normalized Positions
+N_PVP_BUTTON_L = normalize_position(PVP_BUTTON_L)
+N_PVP_BUTTON_R = normalize_position(PVP_BUTTON_R)
+N_PVP_BUTTON_ORIGIN = normalize_position(PVP_BUTTON_ORIGIN)
+N_PVP_BUTTON_VERTEX = normalize_position(PVP_BUTTON_VERTEX)
+
 N_BACK_BUTTON_L = normalize_position(BACK_BUTTON_L)
 N_BACK_BUTTON_R = normalize_position(BACK_BUTTON_R)
 N_RUMBLE_BUTTON_ORIGIN = normalize_position(RUMBLE_BUTTON_ORIGIN)
@@ -109,3 +132,11 @@ N_MINI_4_VERTEX = normalize_position(MINI_4_VERTEX)
 
 N_DEPLOY_AREA_ORIGIN = normalize_position(DEPLOY_AREA_ORIGIN)
 N_DEPLOY_AREA_VERTEX = normalize_position(DEPLOY_AREA_VERTEX)
+
+# Session Timeout OK Button
+N_SESSION_BUTTON_L = (0.4, 0.65) # calc at Experiment
+N_SESSION_BUTTON_R = (0.6, 0.65)
+N_SESSION_BUTTON_ORIGIN = (0.4, 0.6)
+N_SESSION_BUTTON_VERTEX = (0.6, 0.7)
+
+

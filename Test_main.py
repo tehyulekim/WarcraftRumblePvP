@@ -1,5 +1,5 @@
 import unittest
-from main import *
+from WarcraftRumblePvP import *
 
 class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:

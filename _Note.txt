@@ -54,4 +54,10 @@ When pressing button, readig button,
     Normalized Position -> Absolute
 
 
+2024-11-323
+Mini Deploy working
+WarcraftRumblePvP complete!
+
+PyInstaller
+$ python -m PyInstaller main.py
 
