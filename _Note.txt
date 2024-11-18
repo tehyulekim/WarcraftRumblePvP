@@ -1,0 +1,57 @@
+2024-321
+Python 3.12 (PyCharm 2022 shows Python 3.10, but it's 3.12)
+
+2024-322
+https://docs.python.org/3/library/threading.html#event-objects
+This is one of the simplest mechanisms for communication between threads: one thread signals an event and other threads wait for it.
+
+Bluestacks Resolution PvP Computer Player
+768 x 1024
+On Windows 11 Monitor Resolution
+1600x900
+
+
+
+pyautogui.locateOnScreen() is not reliable
+
+To use pixel color detection method.
+
+im.getpixel((100, 200))
+pyautogui.pixelMatchesColor(100, 200, (130, 135, 144))
+
+
+Read 2 pixel points location * in a button.
+-------------------
+|  *  Button   *  |
+-------------------
+
+
+
+Windows top left corner is origin.
+(Origin, width, height) is all information we need for window.
+
+Every other point is relative offset from the origin.
+Fractional percentage distance.
+
+---------
+|       |
+|       |
+|       |
+|       |
+---------
+
+New thread for second window, with new offset.
+
+
+
+# MousePos.exe Absolute position to normalized position
+
+
+Constants.py into Position Normalized
+    Absolute Position => Normalized Position
+
+When pressing button, readig button,
+    Normalized Position -> Absolute
+
+
+
