@@ -3,8 +3,8 @@ GAME_WINDOW_ORIGIN_1 = (3, 33)
 GAME_WINDOW_VERTEX_1 = (1020, 1392)
 
 # Game Window 2
-GAME_WINDOW_ORIGIN_2 = (0, 0)
-GAME_WINDOW_VERTEX_2 = (1, 1)
+GAME_WINDOW_ORIGIN_2 = (1056, 33)
+GAME_WINDOW_VERTEX_2 = (2072, 1392)
 
 # --------------------------------------------
 # Game Window for Normalizing Position

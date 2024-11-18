@@ -51,7 +51,15 @@ class MyTestCase(unittest.TestCase):
 
     def test_random(self):
         print(random.randrange(0,11))
+
+        a1 = [1,2,3,4]
+        random.shuffle(a1)
+        print(a1)
+
+
         pass
+
+
 
 
 if __name__ == '__main__':

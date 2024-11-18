@@ -5,22 +5,23 @@ import pyautogui
 import threading
 import time
 
+GameWindow_2_ON = True
 
 def main():
     player_state = Player()
     t_controller = threading.Thread(target=keyboard_controller, args=[player_state])
+    t_controller.start()
 
     window_position_1 = GameWindow(Constants.GAME_WINDOW_ORIGIN_1, Constants.GAME_WINDOW_VERTEX_1)
-    # window_position2 = GameWindow(GAME_WINDOW_ORIGIN_2, GAME_WINDOW_VERTEX_2)
-
     computer_player_1 = ComputerPlayer(player_state, window_position_1)
-    # computer_player2 = ComputerPlayer(player_state, window_position2)
-
     t_player_1 = threading.Thread(target=computer_player_1.play)
-    # t_player2 = threading.Thread(target=computer_player2.play)
-
-    t_controller.start()
     t_player_1.start()
+
+    if GameWindow_2_ON:
+        window_position_2 = GameWindow(Constants.GAME_WINDOW_ORIGIN_2, Constants.GAME_WINDOW_VERTEX_2)
+        computer_player_2 = ComputerPlayer(player_state, window_position_2)
+        t_player_2 = threading.Thread(target=computer_player_2.play)
+        t_player_2.start()
 
     t_controller.join()
     t_player_1.join()
@@ -42,7 +43,7 @@ class Player:
 # class GameComputer:  
 def keyboard_controller(player: Player):
     while player.state != State.EXIT:
-        action = input("Write Action and Enter. Action: x to Exit. s to Stop. r to Run.")
+        action = input("Write Action and Enter. Action: x to Exit. s to Stop. r to Run.\n")
         match action:
             case 'x':
                 player.state = State.EXIT
@@ -50,9 +51,11 @@ def keyboard_controller(player: Player):
             case 's':
                 player.state = State.STOP
                 player.event_flag_play.clear()  # to False
+                print("Stop flagged")
             case 'r':
                 player.state = State.RUN
                 player.event_flag_play.set()  # to True
+                print("Running")
 
 
 class GameWindow:
@@ -116,11 +119,19 @@ class GameWindow:
     def gold_8_9_is_visible(self):
         return self.button_match_color(self.gold_8, self.gold_9, Constants.GOLD_COLOR)
 
-    def Mini_1_click(self):
-        pass
-
-    def deploy_area_click(self):
-        pass
+    def mini_click_deploy(self, slot: int):
+        match slot:
+            case 1:
+                self.click_button_area_random(self.mini_1_origin, self.mini_1_vertex)
+            case 2:
+                self.click_button_area_random(self.mini_2_origin, self.mini_2_vertex)
+            case 3:
+                self.click_button_area_random(self.mini_3_origin, self.mini_3_vertex)
+            case 4:
+                self.click_button_area_random(self.mini_4_origin, self.mini_4_vertex)
+        time.sleep(0.2 + random.random() * 0.2)
+        self.click_button_area_random(self.deploy_area_origin, self.deploy_area_vertex)
+        time.sleep(0.2 + random.random() * 0.2)
 
 
 class ComputerPlayer:
@@ -131,14 +142,22 @@ class ComputerPlayer:
     def play(self):
         while self.player.state != State.EXIT:
             while self.player.state == State.STOP:
+                print("Stopped")
                 self.player.event_flag_play.wait()  # wait when event flag is False
+
             while self.player.state == State.RUN:
-                print(str(self.player.state))
+                # print(str(self.player.state))
                 if self.game_window.gold_8_9_is_visible():
-                    pass
+                    slot = [1, 2, 3, 4]
+                    random.shuffle(slot)
+                    # print("mini slot: ", slot)
+                    for x in slot:
+                        self.game_window.mini_click_deploy(x)
+
                 elif self.game_window.button_Rumble_Back_is_visible():
-                    print("Back button is visible, Clicking Rumble button")
+                    # print("Back button is visible, Clicking Rumble button")
                     self.game_window.button_Rumble_click()
+
                 elif self.game_window.button_Continue_is_visible():
                     self.game_window.button_Continue_click()
                 time.sleep(3 + random.random())  # randomize timing
