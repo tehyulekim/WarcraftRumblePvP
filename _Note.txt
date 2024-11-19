@@ -54,10 +54,16 @@ When pressing button, readig button,
     Normalized Position -> Absolute
 
 
-2024-11-323
+2024-323
 Mini Deploy working
 WarcraftRumblePvP complete!
 
 PyInstaller
-$ python -m PyInstaller main.py
+$ python -m PyInstaller .\WarcraftRumblePvP.py
+
+
+Session Error OK Button
+has almost the same color and position as
+Connection Error OK Button
+Therefore using Connection Error code to solve Session Error
 
