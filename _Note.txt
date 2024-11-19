@@ -62,8 +62,14 @@ PyInstaller
 $ python -m PyInstaller .\WarcraftRumblePvP.py
 
 
+2024-234
 Session Error OK Button
 has almost the same color and position as
 Connection Error OK Button
 Therefore using Connection Error code to solve Session Error
 
+
+2024-325
+When in Map Westfall menu, need to exit before entering Harvest Golem which is where Cancel Button location is.
+When in campaign menu, press back and PvP
+# Bug, Red Button detector is Foe Reaper 4000. PvP Button must be before Error detection.
