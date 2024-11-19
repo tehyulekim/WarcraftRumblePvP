@@ -69,12 +69,12 @@ class MyTestCase(unittest.TestCase):
             return position_normal_x, position_normal_y
 
         # Session Timeout OK Button detection
-        N_SESSION_BUTTON_L = normalize_position(0.4, 0.65) #
-        N_SESSION_BUTTON_R = normalize_position(0.6, 0.65) #
+        N_SESSION_BUTTON_L = normalize_position((266, 524)) #(x=266, y=523)
+        N_SESSION_BUTTON_R = normalize_position((348, 524)) #
 
         # Session Timeout OK Button for pressing
-        N_SESSION_BUTTON_ORIGIN = normalize_position(0.4, 0.6) #
-        N_SESSION_BUTTON_VERTEX = normalize_position(0.6, 0.7) #
+        N_SESSION_BUTTON_ORIGIN = normalize_position((291, 519)) #
+        N_SESSION_BUTTON_VERTEX = normalize_position((324, 532)) #
 
         pass
 

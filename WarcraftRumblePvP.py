@@ -80,6 +80,11 @@ class GameWindow:
         self.continue_button_origin = self.absolute_position(Constants.N_CONTINUE_BUTTON_ORIGIN)
         self.continue_button_vertex = self.absolute_position(Constants.N_CONTINUE_BUTTON_VERTEX)
 
+        self.connection_error_ok_l = self.absolute_position(Constants.N_CONNECTION_ERROR_OK_BUTTON_L)
+        self.connection_error_ok_r = self.absolute_position(Constants.N_CONNECTION_ERROR_OK_BUTTON_R)
+        self.connection_error_ok_origin = self.absolute_position(Constants.N_CONNECTION_ERROR_OK_BUTTON_ORIGIN)
+        self.connection_error_ok_vertex = self.absolute_position(Constants.N_CONNECTION_ERROR_OK_BUTTON_VERTEX)
+
         self.session_button_l = self.absolute_position(Constants.N_SESSION_BUTTON_L)
         self.session_button_r = self.absolute_position(Constants.N_SESSION_BUTTON_R)
         self.session_button_origin = self.absolute_position(Constants.N_SESSION_BUTTON_ORIGIN)
@@ -132,8 +137,14 @@ class GameWindow:
     def button_Continue_click(self):
         self.click_button_area_random(self.continue_button_origin, self.continue_button_vertex)
 
+    def button_Connection_Error_OK_is_visible(self):
+        return self.button_match_color(self.connection_error_ok_l, self.connection_error_ok_r, Constants.OK_BUTTON_COLOR)
+
+    def button_Connection_Error_OK_click(self):
+        self.click_button_area_random(self.connection_error_ok_origin, self.connection_error_ok_vertex)
+
     def button_Session_is_visible(self):
-        return self.button_match_color(self.session_button_l, self.session_button_r, Constants.SESSION_BUTTON_COLOR)
+        return self.button_match_color(self.session_button_l, self.session_button_r, Constants.OK_BUTTON_COLOR)
 
     def button_Session_click_OK(self):
         self.click_button_area_random(self.session_button_origin, self.session_button_vertex)
@@ -180,6 +191,9 @@ class ComputerPlayer:
 
                 elif self.game_window.button_Continue_is_visible():
                     self.game_window.button_Continue_click()
+
+                elif self.game_window.button_Connection_Error_OK_is_visible():
+                    self.game_window.button_Connection_Error_OK_click()
 
                 # elif self.game_window.button_Session_is_visible():
                 #     self.game_window.button_Session_click_OK()
