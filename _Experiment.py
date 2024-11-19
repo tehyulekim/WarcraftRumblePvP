@@ -33,9 +33,9 @@ class MyTestCase(unittest.TestCase):
             pass
 
     def test_4(self):
-        screenshot1 = pyautogui.screenshot('screenshot1.png')  # , region=(0, 0, 1600, 900))
-        pixel1 = screenshot1.getpixel((1960, 1040))  # (182, 49, 37)
-        match1 = pyautogui.pixelMatchesColor(1960, 1040, (182, 49, 37), tolerance=16)
+        # screenshot1 = pyautogui.screenshot('screenshot1.png')  # , region=(0, 0, 1600, 900))
+        # pixel1 = screenshot1.getpixel((1960, 1040))  # (182, 49, 37)
+        # match1 = pyautogui.pixelMatchesColor(1960, 1040, (182, 49, 37), tolerance=16)
         pass
 
     def test_screenshot(self):

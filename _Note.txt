@@ -73,3 +73,6 @@ Therefore using Connection Error code to solve Session Error
 When in Map Westfall menu, need to exit before entering Harvest Golem which is where Cancel Button location is.
 When in campaign menu, press back and PvP
 # Bug, Red Button detector is Foe Reaper 4000. PvP Button must be before Error detection.
+
+Renaming to chrome.exe shortcut does not load the updated files, but some cache in memory,
+so delete the shortcut when updating

@@ -133,6 +133,8 @@ class GameWindow:
     def button_PvP_click(self):
         self.click_button_area_random(self.pvp_button_origin, self.pvp_button_vertex)
 
+    def button_Rumble_Back_is_visible(self):
+        return self.button_match_color(self.back_button_l, self.back_button_r, Constants.BACK_BUTTON_COLOR)
 
     def button_Rumble_is_visible(self):
         match1 = pyautogui.pixelMatchesColor(self.pvp_logo[0], self.pvp_logo[1], Constants.PVP_LOGO_COLOR, tolerance=48)
@@ -208,6 +210,7 @@ class ComputerPlayer:
                     self.time_seconds_stuck = 0
 
                 elif self.game_window.button_Rumble_is_visible():
+                # elif self.game_window.button_Rumble_Back_is_visible():
                     self.game_window.button_Rumble_click()
 
                 elif self.game_window.button_Continue_is_visible():
