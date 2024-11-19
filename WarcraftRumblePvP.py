@@ -91,6 +91,9 @@ class GameWindow:
         # self.session_button_origin = self.absolute_position(Constants.N_SESSION_BUTTON_ORIGIN)
         # self.session_button_vertex = self.absolute_position(Constants.N_SESSION_BUTTON_VERTEX)
 
+        self.map_origin = self.absolute_position(Constants.N_MAP_BUTTON_ORIGIN)
+        self.map_vertex = self.absolute_position(Constants.N_MAP_BUTTON_VERTEX)
+
         self.gold_8 = self.absolute_position(Constants.N_GOLD_8)
         self.gold_9 = self.absolute_position(Constants.N_GOLD_9)
         self.mini_1_origin = self.absolute_position(Constants.N_MINI_1_ORIGIN)
@@ -110,8 +113,8 @@ class GameWindow:
         return x, y
 
     def button_match_color(self, button_l: tuple, button_r: tuple, color: tuple) -> bool:
-        match1 = pyautogui.pixelMatchesColor(button_l[0], button_l[1], color, tolerance=64)
-        match2 = pyautogui.pixelMatchesColor(button_r[0], button_r[1], color, tolerance=64)
+        match1 = pyautogui.pixelMatchesColor(button_l[0], button_l[1], color, tolerance=48)
+        match2 = pyautogui.pixelMatchesColor(button_r[0], button_r[1], color, tolerance=48)
         return match1 and match2
 
     def click_button_area_random(self, origin: tuple, vertex: tuple) -> None:
@@ -150,6 +153,9 @@ class GameWindow:
     # def button_Session_click_OK(self):
     #     self.click_button_area_random(self.session_button_origin, self.session_button_vertex)
 
+    def button_Map_click(self):
+        self.click_button_area_random(self.map_origin, self.map_vertex)
+
     def gold_8_9_is_visible(self):
         return self.button_match_color(self.gold_8, self.gold_9, Constants.GOLD_COLOR)
 
@@ -172,6 +178,7 @@ class ComputerPlayer:
     def __init__(self, player: Player, game_window: GameWindow):
         self.player = player
         self.game_window = game_window
+        self.time_seconds_stuck = 0
 
     def play(self):
         while self.player.state != State.EXIT:
@@ -201,6 +208,12 @@ class ComputerPlayer:
 
                 elif self.game_window.button_PvP_is_visible():
                     self.game_window.button_PvP_click()
+
+                else:
+                    self.time_seconds_stuck = self.time_seconds_stuck + 3
+                    if self.time_seconds_stuck > 27:
+                        self.game_window.button_Map_click()
+                        self.time_seconds_stuck = 0
 
                 time.sleep(3 + random.random())  # randomize timing
 
