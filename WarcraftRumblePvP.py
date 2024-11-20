@@ -98,6 +98,8 @@ class GameWindow:
         self.map_origin = self.absolute_position(Constants.N_MAP_BUTTON_ORIGIN)
         self.map_vertex = self.absolute_position(Constants.N_MAP_BUTTON_VERTEX)
 
+        self.pvp_cancel_button = self.absolute_position(Constants.N_PVP_CANCEL_BUTTON)
+
         self.gold_8 = self.absolute_position(Constants.N_GOLD_8)
         self.gold_9 = self.absolute_position(Constants.N_GOLD_9)
         self.mini_1_origin = self.absolute_position(Constants.N_MINI_1_ORIGIN)
@@ -165,10 +167,11 @@ class GameWindow:
     # def button_Session_click_OK(self):
     #     self.click_button_area_random(self.session_button_origin, self.session_button_vertex)
 
-    def button_Map_click_and_PvP(self):
+    def button_Map_click(self):
         self.click_button_area_random(self.map_origin, self.map_vertex)
-        time.sleep(3 + random.random())
-        self.button_PvP_click()
+
+    def button_PvP_cancel_click(self):
+        pyautogui.click(self.pvp_cancel_button)
 
     def gold_8_9_is_visible(self):
         return self.button_match_color(self.gold_8, self.gold_9, Constants.GOLD_COLOR)
@@ -230,7 +233,13 @@ class ComputerPlayer:
                 else:
                     self.time_seconds_stuck = self.time_seconds_stuck + 3
                     if self.time_seconds_stuck > 27:
-                        self.game_window.button_Map_click_and_PvP()
+                        self.game_window.button_Map_click()
+                        time.sleep(3 + random.random())
+                        self.game_window.button_PvP_click()
+                        time.sleep(3 + random.random())
+                        self.game_window.button_Rumble_click()
+                        time.sleep(1 + random.random())
+                        self.game_window.button_PvP_cancel_click()
                         self.time_seconds_stuck = 0
 
                 time.sleep(3 + random.random())  # randomize timing
