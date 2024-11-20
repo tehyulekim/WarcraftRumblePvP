@@ -76,3 +76,21 @@ When in campaign menu, press back and PvP
 
 Renaming to chrome.exe shortcut does not load the updated files, but some cache in memory,
 so delete the shortcut when updating
+
+
+
+
+Sky feedback
+		input absolute	normalized	resized.
+	button1	123,456	123,456	123,456
+	some	123,456	123,456	123,456
+	mini2	123,456	123,456	123,456
+
+button class
+	input absolute
+	normalized
+	resized.
+
+new object for each button
+
+
