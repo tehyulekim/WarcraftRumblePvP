@@ -142,7 +142,7 @@ class GameWindow:
         match1 = pyautogui.pixelMatchesColor(self.pvp_logo[0], self.pvp_logo[1], Constants.PVP_LOGO_COLOR, tolerance=48)
         # match2 = pyautogui.pixelMatchesColor(self.pvp_rumble_button[0], self.pvp_rumble_button[1],
         #                                  Constants.PVP_RUMBLE_BUTTON_COLOR)
-        match2 = self.button_match_color(self.back_button_l, self.back_button_r, Constants.BACK_BUTTON_COLOR)
+        match2 = self.button_Rumble_Back_is_visible()
         return match1 and match2
 
     def button_Rumble_click(self):
@@ -155,8 +155,11 @@ class GameWindow:
         self.click_button_area_random(self.continue_button_origin, self.continue_button_vertex)
 
     def button_Connection_Error_OK_is_visible(self):
-        return self.button_match_color(self.connection_error_ok_l, self.connection_error_ok_r,
-                                       Constants.CONNECTION_OK_BUTTON_COLOR)
+        match_red = self.button_match_color(self.connection_error_ok_l, self.connection_error_ok_r,
+                                            Constants.CONNECTION_OK_BUTTON_COLOR)
+        match_green = self.button_match_color(self.connection_error_ok_l, self.connection_error_ok_r,
+                                              Constants.CONNECTION_LOST_GREEN_OK_BUTTON_COLOR)
+        return match_red or match_green
 
     def button_Connection_Error_OK_click(self):
         self.click_button_area_random(self.connection_error_ok_origin, self.connection_error_ok_vertex)
@@ -213,7 +216,7 @@ class ComputerPlayer:
                     self.time_seconds_stuck = 0
 
                 elif self.game_window.button_Rumble_is_visible():
-                # elif self.game_window.button_Rumble_Back_is_visible():
+                    # elif self.game_window.button_Rumble_Back_is_visible():
                     self.game_window.button_Rumble_click()
 
                 elif self.game_window.button_Continue_is_visible():
@@ -223,7 +226,7 @@ class ComputerPlayer:
                 elif self.game_window.button_PvP_is_visible():
                     self.game_window.button_PvP_click()
 
-                # Bug, can click on Map, so PvP detector must be before this Error detector
+                # Bug, can click on World Map Campaign, so PvP detector must be before this Error detector
                 elif self.game_window.button_Connection_Error_OK_is_visible():
                     self.game_window.button_Connection_Error_OK_click()
 
